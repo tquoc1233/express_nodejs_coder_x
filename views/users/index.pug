@@ -4,5 +4,9 @@ form(action="/users/search", method="GET")
 	input(type="text", name='name', value=''+name) 
 	button(type='submit') Submit
 ul
-	each val in users
-		li= val.name
+	each user in users
+		li 
+			span= user.name 
+			
+			span &nbsp
+				a(href="/users/" + user.id) View
