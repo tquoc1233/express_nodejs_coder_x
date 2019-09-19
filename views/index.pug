@@ -1,2 +1,6 @@
-h1 Hello #{name}!
-a(href='users') Users
+extends ./layouts/common
+block title
+	title Page Home
+block content
+	h1 Hello #{name}!
+	img(src="/images/coders-x-banner-fb.jpg", alt="banner").img-fluid

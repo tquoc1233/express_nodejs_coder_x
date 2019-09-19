@@ -1,12 +1,32 @@
-h1 List Users 
-a(href="/users/create") Create new
-form(action="/users/search", method="GET")
-	input(type="text", name='name', value=''+name) 
-	button(type='submit') Submit
-ul
-	each user in users
-		li 
-			span= user.name 
-			
-			span &nbsp
-				a(href="/users/" + user.id) View
+extends ../layouts/common
+block title
+	title Page Users
+block content
+	h1 List Users 
+	.row
+
+		.col.text-left
+			a(href="/users/create").btn.btn-primary Create new
+		.col.text-right
+			form(action="/users/search", method="GET")
+				input(type="text", name='name', value=''+name)
+				button(type='submit').btn.btn-outline-info.ml-2 Search
+	.row
+		table.table
+			thead
+				tr.thead-dark
+					th #
+					th Name
+					th Phone
+					th Actions
+			tbody
+			each user, index in users
+				tr
+					td= index
+					td= user.name
+					td= user.phone
+					td 
+						a(href="/users/" + user.id) View
+append scripts
+	script(src="https://code.jquery.com/jquery-3.4.1.min.js")
+
