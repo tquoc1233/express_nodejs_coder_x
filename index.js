@@ -21,10 +21,8 @@ app.get('/', function(req, res) {
 	});
 });
 
+//users
 app.use('/users', routerUser)
-
-
-
 
 app.listen(port, function() {
 	console.log('Server runing listening port ' +port);
