@@ -26,7 +26,9 @@ block content
 					td= user.name
 					td= user.phone
 					td 
-						a(href="/users/" + user.id) View
+						a.btn.btn-primary.mr-2.float-left(href="/users/" + user.id) View
+						form.float-left.mr-2(action="/users/{{user.id}}?_method=DELETE", method="post")
+							button.btn.btn-danger Delete
 append scripts
 	script(src="https://code.jquery.com/jquery-3.4.1.min.js")
 
