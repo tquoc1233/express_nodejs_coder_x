@@ -2,9 +2,11 @@ extends ../layouts/common
 block title
 	title Page Users
 block content
+	if resultDelete
+		.alert.alert-danger Delete success!
+
 	h1 List Users 
 	.row
-
 		.col.text-left
 			a(href="/users/create").btn.btn-primary Create new
 		.col.text-right
@@ -20,13 +22,15 @@ block content
 					th Phone
 					th Actions
 			tbody
-			each user, index in users
-				tr
-					td= index
-					td= user.name
-					td= user.phone
-					td 
-						a(href="/users/" + user.id) View
+				each user, index in users
+					tr
+						td= index
+						td= user.name
+						td= user.phone
+						td 
+							a.btn.btn-primary.mr-2.float-left(href="/users/" + user.id) View
+							form.float-left.mr-2(action="/users/delete/"+user.id, method="post")
+								button.btn.btn-danger Delete
 append scripts
 	script(src="https://code.jquery.com/jquery-3.4.1.min.js")
 

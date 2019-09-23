@@ -9,11 +9,17 @@ html
 			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarNav', aria-controls='navbarNav', aria-expanded='false', aria-label='Toggle navigation')
 				span.navbar-toggler-icon
 			#navbarNav.collapse.navbar-collapse
-				ul.navbar-nav
+				ul.navbar-nav(style="flex-grow: inherit")
 					li.nav-item.active
 						a.nav-link(href='/') Home
 					li.nav-item
 						a.nav-link(href='/users') Users
+				if !user
+					ul.navbar-nav
+						li.nav-item
+							a.nav-link(href='/auth/login') Login
+			if user
+				p= user.name
 		.container
 			block content
 		block scripts

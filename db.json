@@ -1,43 +1,18 @@
 {
   "users": [
     {
-      "name": "Quoc",
-      "id": "f6LkcDr"
+      "name": "quoc",
+      "phone": "1233333",
+      "id": "9E5gVATO",
+      "email": "tquoc1233@gmail.com",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b"
     },
     {
-      "name": "Doan",
-      "id": "nOTCgGN"
-    },
-    {
-      "name": "Dat",
-      "id": "fDjlhvhZ"
-    },
-    {
-      "name": "test",
-      "id": "kfGgVrVu"
-    },
-    {
-      "name": "test2",
-      "id": "CCj4XGrX"
-    },
-    {
-      "name": "test3",
-      "id": "xXw9JwAH"
-    },
-    {
-      "name": "test4",
-      "phone": "1231231231",
-      "id": "9cTiW4Ia"
-    },
-    {
-      "name": "My",
-      "phone": "11111111",
-      "id": "9TBwwW9f"
-    },
-    {
-      "name": "Hieu",
-      "phone": "22222",
-      "id": "_DKVYhHw"
+      "name": "doan",
+      "phone": "12345",
+      "id": "abchdas2",
+      "email": "doan@gmail.com",
+      "password": "827ccb0eea8a706c4c34a16891f84e7b"
     }
   ]
 }
