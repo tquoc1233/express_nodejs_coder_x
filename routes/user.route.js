@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+
 var validate = require('../validate/user.validate');
 
 var controllerUser = require('../controllers/user.controller');
@@ -19,8 +20,6 @@ router.post('/create', validate.createPost, controllerUser.createPost);
 router.get('/:id', controllerUser.detail);
 
 //delete
-router.delete('/:id', function(req, res) {
-	console.log(req.params.id);
-});
+router.post('/delete/:id', validate.deleteUser, controllerUser.delete);
 
 module.exports = router;

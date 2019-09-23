@@ -34,8 +34,6 @@ module.exports.create = function(req, res) {
 module.exports.createPost = function(req, res) {
 	req.body.id = shortid.generate();
 
-	
-
 	db.get('users').push(req.body).write();
 	res.redirect('/users');
 };
@@ -48,4 +46,21 @@ module.exports.detail = function(req, res) {
 		user: db.get('users').find({id:id}).value()
 	});
 };
+
+//delete
+module.exports.delete = function(req, res) {
+	var id = req.params.id;
+	var checkEmptyId = users.find(function(user) {
+		if (user.id.indexOf(id) !== -1) {
+			db.get('users')
+				.remove({id: user.id})
+				.write();
+			res.render('users/index', {
+				users: users,
+				resultDelete: true
+			});
+			return true;
+		}
+	});
+}
 

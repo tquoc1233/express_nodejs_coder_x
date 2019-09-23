@@ -21,6 +21,11 @@ module.exports.createPost = function(req, res, next) {
 
 module.exports.deleteUser = function(req, res, next) {
 	var id = req.params.id;
-	console.log('id', id)
+	console.log(id);
+	if (id === "") {
+		res.redirect('/users');
+	}
+	
+	next();
 }
 
