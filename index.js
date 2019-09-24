@@ -6,8 +6,9 @@ var cookieParser =  require('cookie-parser');
 
 var db = require('./db');
 
-var routerUser = require('./routes/user.route');
 var routerAuth = require('./routes/auth.route');
+var routerUser = require('./routes/user.route');
+var routerProduct = require('./routes/product.route');
 
 var authMiddleware = require('./middlewares/auth.middleware');
 
@@ -38,10 +39,16 @@ app.get('/', function(req, res) {
 	});
 });
 
+//auth
+app.use("/auth", routerAuth);
 
+//users
 app.use('/users', authMiddleware.requireAuth, routerUser);
 
-app.use("/auth", routerAuth);
+//products
+app.use('/products', routerProduct)
+
+
 
 
 app.listen(port, function() {

@@ -1,0 +1,38 @@
+extends ../layouts/common
+block title
+	title Page Products
+block content
+	h1 List Products
+	if products
+		.row
+			each product in products
+				.col-sm-3
+					.card
+						img.card-img-top(src=product.image, alt="product")
+						.card-body
+							h5.card-title= product.name
+							p.card-text= product.description
+		nav.mt-5(aria-label="Page navigation example")
+			ul.pagination(style="justify-content:flex-end")
+				if pageCurrent > 1
+					li.page-item
+						a.page-link(href="/products?page=" + pageLeft.left) Previous
+				if pageLeft.left1 > 0
+					li.page-item
+						a.page-link(href="/products?page=" + pageLeft.left1)= pageLeft.left1
+				if pageLeft.left > 0
+					li.page-item
+						a.page-link(href="/products?page=" + pageLeft.left)= pageLeft.left
+				li.page-item.active
+					a.page-link(href="/products?page=" + pageCurrent)= pageCurrent
+				if pageRight.right <= pageLast
+					li.page-item
+						a.page-link(href="/products?page=" + pageRight.right)= pageRight.right
+				if pageRight.right1 <= pageLast
+					li.page-item
+						a.page-link(href="/products?page=" + pageRight.right1)= pageRight.right1
+				if pageLast !== pageCurrent
+					li.page-item
+						a.page-link(href="/products?page=" + pageRight.right) Next
+
+

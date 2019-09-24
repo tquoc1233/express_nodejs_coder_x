@@ -1,9 +1,15 @@
 var express = require('express');
+
+var multer  = require('multer')
+
+
 var router = express.Router();
 
 var validate = require('../validate/user.validate');
 
 var controllerUser = require('../controllers/user.controller');
+
+var upload = multer({ dest: './public/uploads/' })
 
 //index
 router.get('/', controllerUser.index);
@@ -14,7 +20,7 @@ router.get('/search', controllerUser.search);
 //create
 router.get('/create', controllerUser.create);
 
-router.post('/create', validate.createPost, controllerUser.createPost);
+router.post('/create', upload.single('avatar'), validate.createPost, controllerUser.createPost);
 
 //detail
 router.get('/:id', controllerUser.detail);
