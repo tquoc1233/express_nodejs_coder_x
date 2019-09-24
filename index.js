@@ -11,6 +11,7 @@ var routerUser = require('./routes/user.route');
 var routerProduct = require('./routes/product.route');
 
 var authMiddleware = require('./middlewares/auth.middleware');
+var sessionMiddleware = require('./middlewares/session.middleware');
 
 var app = express();
 var port = 3000;
@@ -21,6 +22,8 @@ app.use(express.urlencoded({ extended: true })) // for parsing application/x-www
 
 // cookie
 app.use(cookieParser(process.env.SECRET_COOKIE));
+
+app.use(sessionMiddleware);
 
 // pug
 app.set('views', './views');
