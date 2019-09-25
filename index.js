@@ -9,6 +9,7 @@ var db = require('./db');
 var routerAuth = require('./routes/auth.route');
 var routerUser = require('./routes/user.route');
 var routerProduct = require('./routes/product.route');
+var routeCart = require('./routes/cart.route');
 
 var authMiddleware = require('./middlewares/auth.middleware');
 var sessionMiddleware = require('./middlewares/session.middleware');
@@ -50,6 +51,9 @@ app.use('/users', authMiddleware.requireAuth, routerUser);
 
 //products
 app.use('/products', routerProduct)
+
+//cart
+app.use('/cart', routeCart);
 
 
 

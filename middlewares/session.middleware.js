@@ -7,7 +7,9 @@ module.exports = function(req, res, next) {
 		var sessionId = shortid.generate();
 		
 		res.cookie('sessionId', sessionId, {
-			signed: true
+			signed: true,
+			// maxAge: 10000
+			// expires: new Date(Date.now() + 10000)
 		});
 
 		db.get('sessions').push({id: sessionId}).write();
